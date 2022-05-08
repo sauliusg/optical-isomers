@@ -44,9 +44,16 @@ procedure Symmetric_Optical_Isomers is
    -- This program lists *all* possible configurations and checks them
    --  for equality; since the number of congugurations grows
    --  exponentially with the number of atoms, the program can be only
-   --  realistically applied for very short molecules (max. 10-12
-   --  atoms)... For longer molecules it will run out of memory, or
-   --  overflow, or both.
+   --  realistically applied for short molecules:
+   
+   -- On an Intel(R) Xeon(R) CPU E5-1620 0 @ 3.60GHz (lscpu) with 32GB
+   --  RAM, the generation of all isomers for 24 asymmetric atoms
+   --  takes about 1.5 min; each next atom, the time will double, so
+   --  for 30 atoms, the program will take 2**(30 - 24) = 2**6 = 64
+   --  times longer, about 64 * 1.5 = 96 min., or about 1.6 hours.
+   
+   -- For atom counts > 30, the program with 32 bit Integer type will
+   --  raise Constraint Error (for a good reason ;) ).
    
    -- Refs.:
    --
