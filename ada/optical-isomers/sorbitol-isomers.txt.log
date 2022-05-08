@@ -1,0 +1,35 @@
++ directory-metadata
++ whoami
+saulius
++ hostname -f
+starta
++ pwd
+/home/saulius/tests/ada/optical-isomers
++ svn info
+Path: .
+Working Copy Root Path: /home/saulius/tests
+URL: svn+ssh://saulius.grazulis.lt/home/saulius/svn-repositories/tests/ada/optical-isomers
+Relative URL: ^/ada/optical-isomers
+Repository Root: svn+ssh://saulius.grazulis.lt/home/saulius/svn-repositories/tests
+Repository UUID: 7d3c22fc-10a8-428c-9238-cefecdfad580
+Revision: 1734
+Node Kind: directory
+Schedule: normal
+Last Changed Author: saulius
+Last Changed Rev: 1734
+Last Changed Date: 2022-05-08 16:00:43 +0300 (Sun, 08 May 2022)
+
++ df -h .
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme1n1p1  938G  597G  295G  67% /home
++ type osname
+osname is /home/saulius/scripts/osname
++ osname
+Linuxmint-20.1
++ uname -a
+Linux starta 5.8.0-45-generic #51~20.04.1-Ubuntu SMP Tue Feb 23 13:46:31 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
++ date
+2022-05-08T16:59:35 EEST
++ SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1
++ ./bin/symmetric_optical_isomers
++ column -e

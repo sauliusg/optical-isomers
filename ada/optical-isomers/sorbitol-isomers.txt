@@ -1,0 +1,47 @@
+0000 1111 1111 achiral	   |			HO-CH
+			  HC-OH			   |
+   CH2OH		   |			   CH2OH
+   |			HO-CH			
+HO-CH			   |			0001 0111 1110
+   |			HO-CH			
+HO-CH			   |			   CH2OH
+   |			   CH2OH		   |
+HO-CH						HO-CH
+   |			0010 1011 1101		   |
+HO-CH						HO-CH
+   |			   CH2OH		   |
+   CH2OH		   |			HO-CH
+			HO-CH			   |
+1000 1110 0111		   |			  HC-OH
+			HO-CH			   |
+   CH2OH		   |			   CH2OH
+   |			  HC-OH			
+  HC-OH			   |			0101 0101 1010 dyad
+   |			HO-CH			
+HO-CH			   |			   CH2OH
+   |			   CH2OH		   |
+HO-CH						HO-CH
+   |			1010 1010 0101 dyad	   |
+HO-CH						  HC-OH
+   |			   CH2OH		   |
+   CH2OH		   |			HO-CH
+			  HC-OH			   |
+0100 1101 1011		   |			  HC-OH
+			HO-CH			   |
+   CH2OH		   |			   CH2OH
+   |			  HC-OH			
+HO-CH			   |			0011 0011 1100 dyad
+   |			HO-CH			
+  HC-OH			   |			   CH2OH
+   |			   CH2OH		   |
+HO-CH						HO-CH
+   |			0110 1001 1001 achiral	   |
+HO-CH						HO-CH
+   |			   CH2OH		   |
+   CH2OH		   |			  HC-OH
+			HO-CH			   |
+1100 1100 0011 dyad	   |			  HC-OH
+			  HC-OH			   |
+   CH2OH		   |			   CH2OH
+   |			  HC-OH			
+  HC-OH			   |
