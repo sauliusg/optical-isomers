@@ -2,6 +2,7 @@ pragma Ada_2022;
 
 with Text_IO;           use Text_IO;
 with Ada.Command_Line;  use Ada.Command_Line;
+with Ada.Environment_Variables; use Ada.Environment_Variables;
 
 with Ada.Containers.Indefinite_Hashed_Maps;
 with Ada.Strings.Hash;
@@ -96,6 +97,25 @@ procedure Symmetric_Optical_Isomers is
    function Invert (Molecule : Molecule_Optical_Configuration)
                    return Molecule_Optical_Configuration is
       (for I in Molecule'Range => 1 - Molecule (I));
+      
+   -- Specify whether to print out full chemical formulae (Fisher
+   --  projections) of the generated molecules:
+   Print_Formulae : Boolean := False;
+   
+   procedure Put_Formula (Molecule : in Molecule_Optical_Configuration) is
+   begin
+      Put_Line ("   CH2OH");
+      for I in Molecule'Range loop
+         Put_Line ("   |");
+         if Molecule (I) = 0 then
+            Put_Line ("HO-CH");
+         else
+            Put_Line ("  HC-OH");
+         end if;
+      end loop;
+      Put_Line ("   |");
+      Put_Line ("   CH2OH");
+   end;
    
 begin
    
@@ -103,6 +123,10 @@ begin
    -- ./symmetric_optical_isomers 12
    if Argument_Count > 0 then
       N_Atoms := Integer'Value (Argument (1));
+   end if;
+   
+   if Exists ("SYMMETRIC_OPTICAL_ISOMERS_FORMULAE") then
+      Print_Formulae := True;
    end if;
    
    declare
@@ -141,6 +165,12 @@ begin
                Put (" achiral");
             end if;
             New_Line;
+            
+            if Print_Formulae then
+               New_Line;
+               Put_Formula (Molecule);
+               New_Line;
+            end if;
          end if;
       end loop;
    end;
