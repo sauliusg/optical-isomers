@@ -66,6 +66,33 @@ procedure Symmetric_Optical_Isomers is
    -- Convert the molecule array to a string. Useful for printing out and hashing:
    function To_String (Molecule : Molecule_Optical_Configuration) return String is
       (for I in Molecule'Range => (if Molecule (I) = 0 then '0' else '1'));
+      
+   -- Revert molecule: list the atoms (bits, array elements) in the reverse order.
+   --   
+   -- This operation is equivalent to mirroring the molecule around
+   --  the plane perpendicular to the molecule "axis" (the vertical
+   --  axis in the above drawing):
+   function Revert (Molecule : Molecule_Optical_Configuration)
+                   return Molecule_Optical_Configuration is
+      Reverted : Molecule_Optical_Configuration(Molecule'Range);
+   begin
+      for I in Molecule'Range loop
+         Reverted (Molecule'Last - I + 1) := Molecule (I);
+      end loop;
+      return Reverted;
+   end;
+   
+   -- Invert the molecule: change all bits to the opposite bits. This
+   --  is equivalent to mirroring the molecule along the plain that is
+   --  perpendicular to the Fisher projection dawing and runs along
+   --  the molecule main axis (the molecule atom chain, the vertical
+   --  axis in the above drawing). Compbination of Revert and Invert
+   --  operations is equivalen to rotation of the molecule 180 degrees
+   --  around the middle axis perpendicular to the plain of the
+   --  Fisher projection drawing:
+   function Invert (Molecule : Molecule_Optical_Configuration)
+                   return Molecule_Optical_Configuration is
+      (for I in Molecule'Range => 1 - Molecule (I));
    
 begin
    
@@ -78,11 +105,22 @@ begin
    declare
       Max_Isomers : Integer := 2 ** N_Atoms;
       Molecule : Molecule_Optical_Configuration(1..N_Atoms) := (others => 0);
+      Reverted : Molecule_Optical_Configuration(1..N_Atoms);
+      Inverted : Molecule_Optical_Configuration(1..N_Atoms);
    begin
       for I in 1..Max_Isomers loop
          Make_Configuration (Molecule, I);
+         Reverted := Revert (Molecule);
+         Inverted := Invert (Reverted);
          
          Put (To_String (Molecule));
+         Put (" ");
+         Put (To_String (Reverted));
+         Put (" ");
+         Put (To_String (Inverted));
+         if Molecule = Inverted then
+            Put (" dyad");
+         end if;
          New_Line;
       end loop;
    end;
