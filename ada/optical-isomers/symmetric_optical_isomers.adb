@@ -9,7 +9,7 @@ with Ada.Strings.Hash;
 
 procedure Symmetric_Optical_Isomers is
    
-   -- This program lists all unique optical cofgigurations of a linear
+   -- This program lists all unique optical configurations of a linear
    --  molecule that has a symmetry plain in its molecular
    --  connectivity graph, like Sorbitol [1]:
    
