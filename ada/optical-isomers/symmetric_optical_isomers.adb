@@ -3,6 +3,9 @@ pragma Ada_2022;
 with Text_IO;           use Text_IO;
 with Ada.Command_Line;  use Ada.Command_Line;
 
+with Ada.Containers.Indefinite_Hashed_Maps;
+with Ada.Strings.Hash;
+
 procedure Symmetric_Optical_Isomers is
    
    -- This program lists all unique optical cofgigurations of a linear
@@ -107,24 +110,38 @@ begin
       Molecule : Molecule_Optical_Configuration(1..N_Atoms) := (others => 0);
       Reverted : Molecule_Optical_Configuration(1..N_Atoms);
       Inverted : Molecule_Optical_Configuration(1..N_Atoms);
+      
+      package Atom_Configuration_Map is 
+         new Ada.Containers.Indefinite_Hashed_Maps (String, Integer,
+                                                    Ada.Strings.Hash, "=");
+      
+      use Atom_Configuration_Map;
+
+      Observed_Molecules : Atom_Configuration_Map.Map;
    begin
       for I in 1..Max_Isomers loop
          Make_Configuration (Molecule, I);
          Reverted := Revert (Molecule);
          Inverted := Invert (Reverted);
          
-         Put (To_String (Molecule));
-         Put (" ");
-         Put (To_String (Reverted));
-         Put (" ");
-         Put (To_String (Inverted));
-         if Molecule = Inverted then
-            Put (" dyad");
+         if not Contains (Observed_Molecules, To_String (Molecule)) and then
+           not Contains (Observed_Molecules, To_String (Inverted)) then
+            
+            Insert (Observed_Molecules, To_String (Molecule), I);
+            
+            Put (To_String (Molecule));
+            Put (" ");
+            Put (To_String (Reverted));
+            Put (" ");
+            Put (To_String (Inverted));
+            if Molecule = Inverted then
+               Put (" dyad");
+            end if;
+            if Invert(Molecule) = Inverted then
+               Put (" achiral");
+            end if;
+            New_Line;
          end if;
-         if Invert(Molecule) = Inverted then
-            Put (" achiral");
-         end if;
-         New_Line;
       end loop;
    end;
    
