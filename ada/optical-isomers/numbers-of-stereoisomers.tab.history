@@ -1,0 +1,1 @@
+  679  for i in {1..25}; do ( NISO=$(./bin/symmetric_optical_isomers $i | wc -l); echo -e $i"\t"${NISO}"\t"$(perl -le '$s = sprintf "%b", '$NISO'; print( $s, ($s =~ /^10*$/ ? "*":""))') ) done | tee numbers-of-stereoisomers.tab 
