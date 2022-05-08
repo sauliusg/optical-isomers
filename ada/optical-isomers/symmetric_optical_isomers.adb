@@ -123,7 +123,8 @@ procedure Symmetric_Optical_Isomers is
    --  projections) of the generated molecules:
    Print_Formulae : Boolean := False;
    
-   procedure Put_Formula (Molecule : in Molecule_Optical_Configuration) is
+   procedure Put_Fisher_Projection
+     (Molecule : in Molecule_Optical_Configuration) is
    begin
       Put_Line ("   CH2OH");
       for I in Molecule'Range loop
@@ -188,7 +189,7 @@ begin
             
             if Print_Formulae then
                New_Line;
-               Put_Formula (Molecule);
+               Put_Fisher_Projection (Molecule);
                New_Line;
             end if;
          end if;
