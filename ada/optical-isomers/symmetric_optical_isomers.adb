@@ -121,11 +121,11 @@ begin
    begin
       for I in 1..Max_Isomers loop
          Make_Configuration (Molecule, I);
-         Reverted := Revert (Molecule);
-         Inverted := Invert (Reverted);
+         Inverted := Invert (Molecule);
+         Reverted := Revert (Inverted);
          
          if not Contains (Observed_Molecules, To_String (Molecule)) and then
-           not Contains (Observed_Molecules, To_String (Inverted)) then
+           not Contains (Observed_Molecules, To_String (Reverted)) then
             
             Insert (Observed_Molecules, To_String (Molecule), I);
             
@@ -134,10 +134,10 @@ begin
             Put (To_String (Reverted));
             Put (" ");
             Put (To_String (Inverted));
-            if Molecule = Inverted then
+            if Molecule = Reverted then
                Put (" dyad");
             end if;
-            if Invert(Molecule) = Inverted then
+            if Revert(Molecule) = Molecule then
                Put (" achiral");
             end if;
             New_Line;
