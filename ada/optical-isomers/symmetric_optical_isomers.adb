@@ -63,6 +63,16 @@ procedure Symmetric_Optical_Isomers is
       end loop;
    end;
    
+   -- Convert the molecule array to a string. Useful for printing out and hashing:
+   function To_String (Molecule : Molecule_Optical_Configuration) return String is
+      S : String(1..Molecule'Last);
+   begin
+      for I in Molecule'Range loop
+         S (I) := (if Molecule (I) = 0 then '0' else '1');
+      end loop;
+      return S;
+   end;
+   
 begin
    
    -- Number of atoms can be specified as a single integer number on the command line, e.g.:
@@ -78,7 +88,8 @@ begin
       for I in 1..Max_Isomers loop
          Make_Configuration (Molecule, I);
          
-         Put (Molecule'Image);
+         Put (To_String (Molecule));
+         New_Line;
       end loop;
    end;
    
