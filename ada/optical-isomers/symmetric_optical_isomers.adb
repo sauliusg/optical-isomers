@@ -36,8 +36,8 @@ procedure Symmetric_Optical_Isomers is
    --       the generated unique optical isomers.
    --
    --   e.g.:
-   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 /bin/symmetric_optical_isomers
-   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 /bin/symmetric_optical_isomers 2
+   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 ./bin/symmetric_optical_isomers
+   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 ./bin/symmetric_optical_isomers 2
    
    -- CAVEAT: 
    -- 
