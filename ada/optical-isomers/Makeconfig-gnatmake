@@ -1,0 +1,10 @@
+#--*- Makefile -*--
+
+# Configure the Builded of Ada programs using 'gnatmake'.
+
+GNATMAKE_PRG_DIR = .
+GNATMAKE_SRC_DIR = src
+GNATMAKE_BIN_DIR = bin
+GNATMAKE_OBJ_DIR = .obj
+
+# GNATMAKE_OPTIONS ?= -gnata
