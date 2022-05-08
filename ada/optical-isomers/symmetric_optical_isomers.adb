@@ -65,13 +65,7 @@ procedure Symmetric_Optical_Isomers is
    
    -- Convert the molecule array to a string. Useful for printing out and hashing:
    function To_String (Molecule : Molecule_Optical_Configuration) return String is
-      S : String(1..Molecule'Last);
-   begin
-      for I in Molecule'Range loop
-         S (I) := (if Molecule (I) = 0 then '0' else '1');
-      end loop;
-      return S;
-   end;
+      (for I in Molecule'Range => (if Molecule (I) = 0 then '0' else '1'));
    
 begin
    
