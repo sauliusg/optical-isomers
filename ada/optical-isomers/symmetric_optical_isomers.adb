@@ -169,8 +169,7 @@ begin
          Inverted := Invert (Molecule);
          Reverted := Revert (Inverted);
          
-         if not Contains (Observed_Molecules, To_String (Molecule)) and then
-           not Contains (Observed_Molecules, To_String (Reverted)) then
+         if not Contains (Observed_Molecules, To_String (Reverted)) then
             
             Insert (Observed_Molecules, To_String (Molecule), I);
             
