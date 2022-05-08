@@ -121,6 +121,9 @@ begin
          if Molecule = Inverted then
             Put (" dyad");
          end if;
+         if Invert(Molecule) = Inverted then
+            Put (" achiral");
+         end if;
          New_Line;
       end loop;
    end;
