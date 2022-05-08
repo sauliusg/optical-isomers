@@ -25,6 +25,20 @@ procedure Symmetric_Optical_Isomers is
    --         |
    --         CH2OH
    
+   -- USAGE:
+   --   ./bin/symmetric_optical_isomers
+   --   ./bin/symmetric_optical_isomers 2
+   --   ./bin/symmetric_optical_isomers 10
+   
+   -- Environment variables:
+   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE
+   --       when set to 1, outputs also Fisher projection formuale of
+   --       the generated unique optical isomers.
+   --
+   --   e.g.:
+   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 /bin/symmetric_optical_isomers
+   --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 /bin/symmetric_optical_isomers 2
+   
    -- CAVEAT: 
    -- 
    -- This program lists *all* possible configurations and checks them
