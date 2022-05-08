@@ -12,12 +12,12 @@ URL: svn+ssh://saulius.grazulis.lt/home/saulius/svn-repositories/tests/ada/optic
 Relative URL: ^/ada/optical-isomers
 Repository Root: svn+ssh://saulius.grazulis.lt/home/saulius/svn-repositories/tests
 Repository UUID: 7d3c22fc-10a8-428c-9238-cefecdfad580
-Revision: 1734
+Revision: 1736
 Node Kind: directory
 Schedule: normal
 Last Changed Author: saulius
-Last Changed Rev: 1734
-Last Changed Date: 2022-05-08 16:00:43 +0300 (Sun, 08 May 2022)
+Last Changed Rev: 1736
+Last Changed Date: 2022-05-08 17:05:37 +0300 (Sun, 08 May 2022)
 
 + df -h .
 Filesystem      Size  Used Avail Use% Mounted on
@@ -29,7 +29,7 @@ Linuxmint-20.1
 + uname -a
 Linux starta 5.8.0-45-generic #51~20.04.1-Ubuntu SMP Tue Feb 23 13:46:31 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
 + date
-2022-05-08T16:59:35 EEST
+2022-05-08T17:10:34 EEST
 + SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1
 + ./bin/symmetric_optical_isomers
-+ column -e
++ column -c 125 -e

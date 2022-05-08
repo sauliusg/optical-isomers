@@ -1,1 +1,1 @@
-  535  ( set -x; directory-metadata; SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 ./bin/symmetric_optical_isomers | column -e > sorbitol-isomers.txt ) &> sorbitol-isomers.txt.log
+  599  ( set -x; directory-metadata; SYMMETRIC_OPTICAL_ISOMERS_FORMULAE=1 ./bin/symmetric_optical_isomers | column -c 125 -e > sorbitol-isomers.txt ) &> sorbitol-isomers.txt.log 
