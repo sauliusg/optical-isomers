@@ -15,13 +15,13 @@ procedure Symmetric_Optical_Isomers is
    
    --         CH2OH
    --         |
-   --        HC-OH     (assymetric atom 1)
+   --        HC-OH     (asymmetric atom 1)
    --         |
-   --      HO-CH       (assymetric atom 2)
+   --      HO-CH       (asymmetric atom 2)
    --         |
-   --        HC-OH     (assymetric atom 3)
+   --        HC-OH     (asymmetric atom 3)
    --         |
-   --        HC-OH     (assymetric atom 4)
+   --        HC-OH     (asymmetric atom 4)
    --         |
    --         CH2OH
    
@@ -32,7 +32,7 @@ procedure Symmetric_Optical_Isomers is
    
    -- Environment variables:
    --   SYMMETRIC_OPTICAL_ISOMERS_FORMULAE
-   --       when set to 1, outputs also Fisher projection formuale of
+   --       when set to 1, outputs also Fisher projection formulae of
    --       the generated unique optical isomers.
    --
    --   e.g.:
@@ -63,7 +63,7 @@ procedure Symmetric_Optical_Isomers is
    --  https://en.wikipedia.org/w/index.php?title=Sorbitol&oldid=1074747785]
    
    -- Each asymmetric atom can have one of the two configurations (S
-   --  or R, L or D); we do not need to know wich is whic for just
+   --  or R, L or D); we do not need to know which is which for just
    --  listing the isomers, so we use a single bit, values '0' and
    --  '1', to specify the configuration:
    type Optical_Configuration is range 0..1;
@@ -109,10 +109,10 @@ procedure Symmetric_Optical_Isomers is
    
    -- Invert the molecule: change all bits to the opposite bits. This
    --  is equivalent to mirroring the molecule along the plain that is
-   --  perpendicular to the Fisher projection dawing and runs along
+   --  perpendicular to the Fisher projection drawing and runs along
    --  the molecule main axis (the molecule atom chain, the vertical
-   --  axis in the above drawing). Compbination of Revert and Invert
-   --  operations is equivalen to rotation of the molecule 180 degrees
+   --  axis in the above drawing). Combination of Revert and Invert
+   --  operations is equivalent to rotation of the molecule 180 degrees
    --  around the middle axis perpendicular to the plain of the
    --  Fisher projection drawing:
    function Invert (Molecule : Molecule_Optical_Configuration)
