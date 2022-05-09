@@ -42,7 +42,7 @@ procedure Symmetric_Optical_Isomers is
    -- CAVEAT: 
    -- 
    -- This program lists *all* possible configurations and checks them
-   --  for equality; since the number of congugurations grows
+   --  for equality; since the number of configurations grows
    --  exponentially with the number of atoms, the program can be only
    --  realistically applied for short molecules:
    
